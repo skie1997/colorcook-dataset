@@ -1,0 +1,15 @@
+.colorset-card {
+    display: inline-flex;
+    width: 28%;
+    height: 50px;
+    padding: 20px;
+}
+.colorset-unit {
+    flex: 1;
+}
+.colorset-unit-first {
+    border-radius: 5px 0 0 5px;
+}
+.colorset-unit-last {
+    border-radius: 0 5px 5px 0;
+}
