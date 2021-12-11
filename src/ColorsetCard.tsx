@@ -10,6 +10,7 @@ export interface CardProps {
         specificity: number[];
         specificities: object;
     }
+    industryFilter: string[];
 }
 
 export interface CardState {

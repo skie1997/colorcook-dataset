@@ -1,17 +1,43 @@
 import React from 'react';
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, Checkbox } from 'antd';
 import { BulbOutlined, StockOutlined } from '@ant-design/icons';
 import './App.css';
 import { colorStyle } from './assets/palettes/colorStyle_all_2_ok';
 import ColorsetCard from './ColorsetCard';
 import SubMenu from 'antd/lib/menu/SubMenu';
-const { Header, Footer, Sider, Content } = Layout;
+const { Header, Footer, Content } = Layout;
+const CheckboxGroup = Checkbox.Group;
 
-class App extends React.Component {
-  handleClick = (e: any) => {
-    console.log('e', e);
+export interface AppState {
+  industryFilter: string[];
+  indeterminate: boolean;
+  checkAll: boolean;
+}
+
+class App extends React.Component<{}, AppState> {
+  // eslint-disable-next-line
+  constructor(props: any) {
+      super(props);
+      this.state = {
+        industryFilter: [],
+        indeterminate: true,
+        checkAll: false,
+      }
+
   }
+  
+  onIndustryChange = (e: any) => {
+    console.log('e', e);
+    this.setState({
+      industryFilter: e.target.value
+    })
+  }
+
   render() {
+    const industryOperation = ['business', 'education', 'healthcare', 'finance', 'manufacturing', 'social', 'sports', 'technology'];
+    const industryName = ['business', 'education', 'healthcare', 'finance', 'manufacturing', 'social media', 'sports', 'technology'];
+    const { industryFilter, indeterminate, checkAll } = this.state;
+    
     return(
     <div className="App">
       <Layout>
@@ -26,38 +52,44 @@ class App extends React.Component {
         </Header>
         <Content className = 'content'>
           <div className = 'content-side'>
-            <Menu mode = "inline" openKeys = {['mode']} style = {{ height: '100%' }} onClick = {this.handleClick}>
-              <SubMenu key = "mode" title = "Mode">
+            <Menu mode = "inline" openKeys = {['mode']} selectedKeys = {["dark"]} style = {{ height: '100%' }} >
+              <SubMenu className = 'content-side-submenu' key = "mode" title = "Mode" >
                 <Menu.Item key = "dark" >dark</Menu.Item>
                 <Menu.Item key = "light" >light</Menu.Item>
               </SubMenu>
             </Menu>
 
-            <Menu mode = "inline" openKeys = {['rank']} style = {{ height: '100%' }} onClick = {this.handleClick}>
-              <SubMenu key = "rank" title = "Rank">
+            <Menu mode = "inline" openKeys = {['rank']} style = {{ height: '100%' }} >
+              <SubMenu className = 'content-side-submenu' key = "rank" title = "Rank">
                 <Menu.Item key = "aesthetics" >aesthetics</Menu.Item>
                 <Menu.Item key = "distinctiveness" >distinctiveness</Menu.Item>
               </SubMenu>
             </Menu>
 
-            <Menu mode = "inline" openKeys = {['industry']} style = {{ height: '100%' }} onClick = {this.handleClick}>
-              <SubMenu key = "industry" title = "Industry">
-                <Menu.Item key = "business" >business</Menu.Item>
+            <Menu mode = "inline" openKeys = {['industry']} style = {{ height: '100%' }} >
+              <SubMenu className = 'content-side-submenu' key = "industry" title = "Industry">
+                {/* <Menu.Item key = "business" >business</Menu.Item>
                 <Menu.Item key = "education" >education</Menu.Item>
                 <Menu.Item key = "healthcare" >healthcare</Menu.Item>
                 <Menu.Item key = "finance" >finance</Menu.Item>
                 <Menu.Item key = "manufacturing" >manufacturing</Menu.Item>
                 <Menu.Item key = "social" >social media</Menu.Item>
                 <Menu.Item key = "sports" >sports</Menu.Item>
-                <Menu.Item key = "technology" >technology</Menu.Item>
+                <Menu.Item key = "technology" >technology</Menu.Item> */}
+                <Checkbox indeterminate={indeterminate}>
+                  Check all
+                </Checkbox>
+                <CheckboxGroup options={industryOperation} value={industryName} onChange={this.onIndustryChange} />
               </SubMenu>
             </Menu>
+
+           
 
           </div>
           <div className = 'content-main'>
             {colorStyle.map((industry) => {
               return industry.colorset.map((colorset) => {
-                return <ColorsetCard info = {colorset}/>
+                return <ColorsetCard info = {colorset} industryFilter = {this.state.industryFilter} />
               })
             })}
           </div>
