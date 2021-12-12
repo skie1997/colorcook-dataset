@@ -1,11 +1,19 @@
 .colorset-card {
     display: inline-flex;
-    width: 28%;
-    height: 50px;
+    width: 32%;
+    height: 72px;
     padding: 20px;
+    &:hover {
+        .colorset-unit {
+            flex: 0;
+        }
+    }
 }
 .colorset-unit {
     flex: 1;
+    &:hover {
+        flex: 1
+    }
 }
 .colorset-unit-first {
     border-radius: 5px 0 0 5px;
