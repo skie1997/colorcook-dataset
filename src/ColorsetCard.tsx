@@ -1,5 +1,6 @@
 import React from 'react';
-import './ColorsetCard.css';
+import './ColorsetCard.sass';
+import { Alert } from 'antd';
 
 export interface CardProps {
     info: {
@@ -23,35 +24,40 @@ export default class ColorsetCard extends React.PureComponent<CardProps, CardSta
         super(props);
     }
 
-    enterColor = (e: any) => {
-     
-        // for(let i in e.target.parentElement.childNodes) {
-        //     console.log(e.target.parentElement.childNodes[i].style)
-        //     e.target.parentElement.childNodes[i].style.setProperty('display', 'flex');
-        //     e.target.parentElement.childNodes[i].style.setProperty('flex', '0');
-        // }
-        // let previousSibling = e.target.previousSibling;
-        // while(previousSibling) {
-        //     console.log('111')
-        //     e.target.previousSibling.style.flex = 0
-        //     previousSibling = previousSibling.previousSibling
-        // }
+    rgbToHex = (rgb: string) => {
+        let rgbArr = rgb.split(/[(),]/);
+        return '#' + parseInt(rgbArr[1]).toString(16) + parseInt(rgbArr[2]).toString(16) + parseInt(rgbArr[3]).toString(16);
+    }
 
-        // let eles = document.querySelectorAll<HTMLElement>('.' + e.target.classList[1]);
-        // for(let i = 0; i < eles.length; i++) {
-        //     console.log('eles', eles[i])
-        //     eles[i]['style']['flex'] = 0;
-        // }
-        
+    copyColor = async(e: any, hex: string) => {
+        try {
+            await navigator.clipboard.writeText(hex);
+            let alertEle = document.getElementsByClassName('copy-alert')[0] as HTMLElement;
+            if(alertEle) {
+                console.log('sucess')
+                console.log('alertEle', alertEle)
+                alertEle.style.animationName = 'fadeOut';
+                setTimeout(() => {
+                    alertEle.style.animationName = '';
+                }, 2000)
 
+            }
+          } catch (err) {
+            console.error('Failed to copy: ', err);
+          }
     }
     
     render() {
         return (
             <div className = 'colorset-card'>
-            {this.props.info.rgbs.map((rgb, index) => {
-                return <div className = {`colorset-unit ${index === 0 ? 'colorset-unit-first' : ''} ${index === (this.props.info.rgbs.length - 1) ? 'colorset-unit-last' : ''}` + ` ${this.props.info.id}`} style ={{backgroundColor: rgb}} onMouseEnter={this.enterColor}></div>
-            })}
+                {this.props.info.rgbs.map((rgb, index) => {
+                    const hex = this.rgbToHex(rgb);
+                    return (
+                        <div className = {`colorset-unit ${index === 0 ? 'colorset-unit-first' : ''} ${index === (this.props.info.rgbs.length - 1) ? 'colorset-unit-last' : ''}`} style ={{backgroundColor: rgb}} >
+                            <span className= 'colorset-value-span' onClick = {(e) => this.copyColor(e, hex)}>{hex}</span>
+                        </div>)
+
+                })}
             </div>
         )
     }

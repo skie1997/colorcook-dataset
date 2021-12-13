@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout, Menu, Checkbox } from 'antd';
+import { Layout, Menu, Checkbox, Alert } from 'antd';
 // import { BulbOutlined, StockOutlined } from '@ant-design/icons';
 import './App.css';
 import { colorStyle } from './assets/palettes/colorStyle_all_2_ok2';
@@ -66,6 +66,13 @@ class App extends React.Component<{}, AppState> {
     
     return(
     <div className="App">
+      <Alert
+          className = "copy-alert"
+          message="copy sucess"
+          // description="copy sucess"
+          type="success"
+          showIcon
+        />
       <Layout>
         <Header className = 'header' style={{height: 240, backgroundColor: '#FFF'}}>
           <h1 className = 'header-title'>Palettes Gallery Of ColorCook</h1>

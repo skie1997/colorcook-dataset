@@ -1,0 +1,41 @@
+.colorset-card {
+    display: inline-flex;
+    width: 32%;
+    height: 72px;
+    padding: 20px;
+    &:hover {
+        .colorset-unit {
+            flex: 1 !important;
+        }
+    }
+    .colorset-unit {
+        flex: 1;
+        border: 1px solid white;
+        &:hover {
+            flex: 6 !important;
+            .colorset-value-span {
+                display: block;
+            }
+        }
+        .colorset-value-span {
+            display: none;
+            background-color: rgba(255, 255, 255, 0.4);
+            width: 80%;
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform:translate(-50%, -50%);
+            cursor:pointer;
+
+        }
+    }
+    
+}
+
+
+.colorset-unit-first {
+    border-radius: 5px 0 0 5px;
+}
+.colorset-unit-last {
+    border-radius: 0 5px 5px 0;
+}
