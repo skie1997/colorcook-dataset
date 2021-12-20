@@ -1,6 +1,6 @@
 import React from 'react';
 import './ColorsetCard.sass';
-import { Alert } from 'antd';
+import { Alert, Descriptions } from 'antd';
 import { FileImageOutlined, FileTextOutlined, EyeOutlined} from '@ant-design/icons';
 import html2canvas from 'html2canvas';
 
@@ -62,6 +62,17 @@ export default class ColorsetCard extends React.PureComponent<CardProps, CardSta
             document.body.removeChild(aLink);
         })
     }
+
+    downJson = (info: any) => {
+        let infoJson = URL.createObjectURL(new Blob([JSON.stringify(info)], {type: 'application/json'}));
+        let aLink = document.createElement("a");
+            aLink.style.display = "none";
+            aLink.href = infoJson;
+            aLink.download = "colorset.json";
+            document.body.appendChild(aLink);
+            aLink.click();
+            document.body.removeChild(aLink);
+    }
     
     render() {
         return (
@@ -76,6 +87,17 @@ export default class ColorsetCard extends React.PureComponent<CardProps, CardSta
 
                     })}
                 </div>
+                <div className = 'detail'>
+                    <Descriptions >
+                        <Descriptions.Item label = 'industry'>{this.props.info.id}</Descriptions.Item>
+                        <Descriptions.Item label = 'aesthetics'>{this.props.info.aesthetics}</Descriptions.Item>
+                        <Descriptions.Item label = 'distinctiveness'>{this.props.info.distinctiveness}</Descriptions.Item>
+                        <Descriptions.Item label = 'specificity'>{this.props.info.specificity}</Descriptions.Item>
+                    </Descriptions>
+                    {/* <p>industry: {this.props.info.id}</p>
+                    <p>{'aesthetics:' + this.props.info.aesthetics + '\u00A0\u00A0\u00A0\u00A0\u00A0distinctiveness:' + this.props.info.distinctiveness}</p>
+                    <p>specificity: {this.props.info.specificity}</p> */}
+                </div>
                 <div className = 'download'>
                     <div className = 'downImg'>
                         <div className = 'downImg-back'>
@@ -84,7 +106,7 @@ export default class ColorsetCard extends React.PureComponent<CardProps, CardSta
                     </div>
                     <div className = 'downJson' >
                         <div className = 'downJson-back'>
-                            <FileTextOutlined style = {{fontSize: 15, color: '#222'}}/>
+                            <FileTextOutlined style = {{fontSize: 15, color: '#222'}} onClick = {() => this.downJson(this.props.info)}/>
                         </div>
                     </div>
                     <div className = 'viewImg' >
@@ -93,6 +115,7 @@ export default class ColorsetCard extends React.PureComponent<CardProps, CardSta
                         </div>
                     </div>
                 </div>
+                
             </div>
         )
     }
