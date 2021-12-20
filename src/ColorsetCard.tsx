@@ -49,14 +49,14 @@ export default class ColorsetCard extends React.PureComponent<CardProps, CardSta
           }
     }
 
-    downImg = (e: any) => {
+    downImg = (e: any, id: string) => {
         let ele = e.target.parentElement.parentElement.parentElement.parentElement.previousSibling;
         html2canvas(ele).then((canvas) => {
             let imgData = canvas.toDataURL("image/png");
             let aLink = document.createElement("a");
             aLink.style.display = "none";
             aLink.href = imgData;
-            aLink.download = "colorset.png";
+            aLink.download = "colorset_" + id + ".png";
             document.body.appendChild(aLink);
             aLink.click();
             document.body.removeChild(aLink);
@@ -68,7 +68,7 @@ export default class ColorsetCard extends React.PureComponent<CardProps, CardSta
         let aLink = document.createElement("a");
             aLink.style.display = "none";
             aLink.href = infoJson;
-            aLink.download = "colorset.json";
+            aLink.download = "colorset_" + info.id + ".json";
             document.body.appendChild(aLink);
             aLink.click();
             document.body.removeChild(aLink);
@@ -88,20 +88,20 @@ export default class ColorsetCard extends React.PureComponent<CardProps, CardSta
                     })}
                 </div>
                 <div className = 'detail'>
-                    <Descriptions >
-                        <Descriptions.Item label = 'industry'>{this.props.info.id}</Descriptions.Item>
+                    {/* <Descriptions >
+                        <Descriptions.Item label = 'industry'>{this.props.info.id.split('_')[0]}</Descriptions.Item>
                         <Descriptions.Item label = 'aesthetics'>{this.props.info.aesthetics}</Descriptions.Item>
                         <Descriptions.Item label = 'distinctiveness'>{this.props.info.distinctiveness}</Descriptions.Item>
                         <Descriptions.Item label = 'specificity'>{this.props.info.specificity}</Descriptions.Item>
-                    </Descriptions>
-                    {/* <p>industry: {this.props.info.id}</p>
-                    <p>{'aesthetics:' + this.props.info.aesthetics + '\u00A0\u00A0\u00A0\u00A0\u00A0distinctiveness:' + this.props.info.distinctiveness}</p>
-                    <p>specificity: {this.props.info.specificity}</p> */}
+                    </Descriptions> */}
+                    <div>industry: {this.props.info.id.split('_')[0]}</div>
+                    <div>{'aesthetics:' + this.props.info.aesthetics + '\u00A0\u00A0\u00A0\u00A0\u00A0distinctiveness:' + this.props.info.distinctiveness}</div>
+                    {/* <div>specificity: {this.props.info.specificity}</div> */}
                 </div>
                 <div className = 'download'>
                     <div className = 'downImg'>
                         <div className = 'downImg-back'>
-                            <FileImageOutlined style = {{fontSize: 15, color: '#222'}} onClick = {this.downImg}/>
+                            <FileImageOutlined style = {{fontSize: 15, color: '#222'}} onClick = {(e) => this.downImg(e, this.props.info.id)}/>
                         </div>
                     </div>
                     <div className = 'downJson' >
