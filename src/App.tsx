@@ -1,7 +1,7 @@
 import React from 'react';
 import { Layout, Menu, Checkbox, Alert } from 'antd';
 // import { BulbOutlined, StockOutlined } from '@ant-design/icons';
-import './App.css';
+import './App.sass';
 import { colorStyle } from './assets/palettes/colorStyle_all_2_ok2';
 import ColorsetCard from './ColorsetCard';
 // import SubMenu from 'antd/lib/menu/SubMenu';
@@ -39,6 +39,15 @@ class App extends React.Component<{}, AppState> {
     this.setState({
       rank: e.key
     })
+  }
+
+  onModeChange = (e: any) => {
+    document.getElementsByTagName('body')[0].style.setProperty('--backColor','#121212');
+    document.getElementsByTagName('body')[0].style.setProperty('--fontColor','#fff');
+    document.getElementsByTagName('body')[0].style.setProperty('--surfaceColor','#1e1e1e');
+    document.getElementsByTagName('body')[0].style.setProperty('--shadowColor', 'none');
+    document.getElementsByTagName('body')[0].style.setProperty('--onBackColor','#d6d6d6');
+    document.getElementsByTagName('body')[0].style.setProperty('--onSurfaceColor','#e1e1e1');
   }
   
   onIndustryChange = (industryFilter: any) => {
@@ -85,7 +94,7 @@ class App extends React.Component<{}, AppState> {
         </Header>
         <Layout>
           <Sider className = 'sider' width={'20%'} style={{background: 'white'}}>
-          <Menu mode = "inline" defaultOpenKeys = {['mode']} defaultSelectedKeys = {[mode]} style = {{ height: '100%' }} >
+          <Menu mode = "inline" defaultOpenKeys = {['mode']} defaultSelectedKeys = {[mode]} style = {{ height: '100%' }} onClick = {this.onModeChange}>
                 <SubMenu className = 'content-side-submenu' key = "mode" title = "Mode" >
                   <Menu.Item key = "dark" >dark</Menu.Item>
                   <Menu.Item key = "light" >light</Menu.Item>

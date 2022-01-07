@@ -1,9 +1,10 @@
+@backColor: var(--backColor);
 .App {
   text-align: center;
   padding: 20px;
 }
 .ant-layout {
-  background: #FFF !important;
+  background: @backColor !important;
 }
 .content-main {
   height: 500px;
@@ -12,9 +13,12 @@
 .ant-menu {
   height: auto !important;
 }
+.ant-layout-header {
+  background-color: @backColor !important;
+}
 .ant-layout-footer {
   padding: 0;
-  background: #FFF;
+  background: @backColor;
 }
 @keyframes fadeOut {
   from {

@@ -77,6 +77,7 @@ export default class ColorsetCard extends React.PureComponent<CardProps, CardSta
     render() {
         return (
             <div className = 'colorset-card'>
+
                 <div className = 'colorset'>
                     {this.props.info.rgbs.map((rgb, index) => {
                         const hex = this.rgbToHex(rgb);
