@@ -73,7 +73,8 @@ code {
   opacity: 0;
 }
 .ant-menu-submenu-title {
-  padding-left: 24px;
+  padding-left: 0;
+  padding-right: 0;
   background: @highlightColor;
   border-radius: 10px 10px 0 0;
   // color: #222;
@@ -82,12 +83,14 @@ code {
 }
 .ant-menu.ant-menu-root.ant-menu-inline.ant-menu-light{
   border-radius: 10px;
-  border: solid 1px @borderColor;
+  border: solid 1px @surfaceColor;
+  background: @surfaceColor;
 }
 .ant-menu-item.ant-menu-item-selected.ant-menu-item-only-child {
   background: @highlightColor;
   // color: #222;
   color: @fontColor;
+
 
   &::after {
     opacity: 0;
@@ -102,6 +105,14 @@ code {
   font-size: 10px;
   border: solid 5px @surfaceColor;
   border-radius: 10px;
+  padding-left: 0 !important;
+  padding-right: 0;
+}
+.industry-check {
+  .ant-menu-sub.ant-menu-inline {
+    height: 193px !important;
+    overflow-y: scroll;
+  }
 }
 .ant-menu-sub.ant-menu-inline {
   background-color: @surfaceColor;
@@ -112,13 +123,23 @@ code {
   border-radius: 10px;
 }
 
+.ant-menu-inline.ant-menu-root .ant-menu-submenu-title {
+  padding-left: 0 !important;
+  padding-right: 0;
+}
+
 .ant-layout-sider {
   background: @backColor !important;
 }
 
 .ant-checkbox-wrapper {
   display: flex;
-  padding-left: 20px;
+  padding-left: 30px;
   margin: 5px 0;
   color: @fontColor;
+}
+
+.ant-checkbox + span {
+  font-size: 10px;
+  text-align: center;
 }

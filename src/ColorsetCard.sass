@@ -3,6 +3,7 @@
 @backColor: var(--backColor); //用var来盛放变量名
 @surfaceColor: var(--surfaceColor);
 @shadowColor: var(--shadowColor);
+@highlightColor: var(--highlightColor);
 
 /* 超小屏幕（手机，小于 768px） */
 @media screen and (min-width: 0px) {
@@ -79,7 +80,8 @@
         display: flex;
         width: 100%;
         height: 20%;
-        margin-top: 20px;
+        //margin-top: 20px;
+        margin-top: 10px;
         .downImg {
             flex: 1;
             height: 30px;
@@ -106,7 +108,7 @@
                 border-radius: 15px;
                 margin: auto;
                 &:hover {
-                    background-color: #eee;
+                    background-color: @highlightColor;
                 }
             }
             svg {

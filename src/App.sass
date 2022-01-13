@@ -1,4 +1,5 @@
 @backColor: var(--backColor);
+@onBackColor: var(--onBackColor);
 .App {
   text-align: center;
   padding: 20px;
@@ -7,11 +8,18 @@
   background: @backColor !important;
 }
 .content-main {
-  height: 500px;
+  height: 536px;
   overflow-y: auto;
 }
 .ant-menu {
   height: auto !important;
+}
+.ant-menu-submenu-title {
+    padding-left: 0;
+    padding-right: 0;
+}
+.ant-menu-title-content {
+  text-align: center;
 }
 .ant-layout-header {
   background-color: @backColor !important;
@@ -19,6 +27,7 @@
 .ant-layout-footer {
   padding: 0;
   background: @backColor;
+  color: @onBackColor;
 }
 @keyframes fadeOut {
   from {

@@ -1,7 +1,7 @@
 import React from 'react';
 import './ColorsetCard.sass';
 import { Alert, Descriptions } from 'antd';
-import { FileImageOutlined, FileTextOutlined, EyeOutlined} from '@ant-design/icons';
+import { FileImageOutlined, FileTextOutlined, EyeOutlined, ArrowDownOutlined} from '@ant-design/icons';
 import html2canvas from 'html2canvas';
 
 export interface CardProps {
@@ -100,11 +100,12 @@ export default class ColorsetCard extends React.PureComponent<CardProps, CardSta
                     {/* <div>specificity: {this.props.info.specificity}</div> */}
                 </div>
                 <div className = 'download'>
-                <div className = 'downImg'>
-                        <div className = 'downImg-back'>
-                            <FileImageOutlined style = {{fontSize: 15, color: '#222'}} onClick = {(e) => this.downImg(e, this.props.info.id)}/>
+                    <div className = 'downJson' >
+                        <div className = 'downJson-back'>
+                            <ArrowDownOutlined style = {{fontSize: 15}} onClick = {() => this.downJson(this.props.info)}/>
                         </div>
                     </div>
+                
                     {/* <div className = 'downImg'>
                         <div className = 'downImg-back'>
                             <FileImageOutlined style = {{fontSize: 15, color: '#222'}} onClick = {(e) => this.downImg(e, this.props.info.id)}/>

@@ -42,14 +42,26 @@ class App extends React.Component<{}, AppState> {
   }
 
   onModeChange = (e: any) => {
-    document.getElementsByTagName('body')[0].style.setProperty('--backColor','#121212');
-    document.getElementsByTagName('body')[0].style.setProperty('--fontColor','#fff');
-    document.getElementsByTagName('body')[0].style.setProperty('--surfaceColor','#1e1e1e');
-    document.getElementsByTagName('body')[0].style.setProperty('--shadowColor', 'none');
-    document.getElementsByTagName('body')[0].style.setProperty('--onBackColor','#d6d6d6');
-    document.getElementsByTagName('body')[0].style.setProperty('--onSurfaceColor','#e1e1e1');
-    document.getElementsByTagName('body')[0].style.setProperty('--highlightColor','#363636');
-    document.getElementsByTagName('body')[0].style.setProperty('--borderColor','rgba(0,0,0,0)');
+    if(e.key === 'dark') {
+      document.getElementsByTagName('body')[0].style.setProperty('--backColor','#121212');
+      document.getElementsByTagName('body')[0].style.setProperty('--fontColor','#fff');
+      document.getElementsByTagName('body')[0].style.setProperty('--surfaceColor','#1e1e1e');
+      document.getElementsByTagName('body')[0].style.setProperty('--shadowColor', 'none');
+      document.getElementsByTagName('body')[0].style.setProperty('--onBackColor','#d6d6d6');
+      document.getElementsByTagName('body')[0].style.setProperty('--onSurfaceColor','#e1e1e1');
+      document.getElementsByTagName('body')[0].style.setProperty('--highlightColor','#363636');
+      document.getElementsByTagName('body')[0].style.setProperty('--borderColor','rgba(0,0,0,0)');
+    } else {
+      document.getElementsByTagName('body')[0].style.setProperty('--backColor','#fff');
+      document.getElementsByTagName('body')[0].style.setProperty('--fontColor','#333');
+      document.getElementsByTagName('body')[0].style.setProperty('--surfaceColor','#fff');
+      document.getElementsByTagName('body')[0].style.setProperty('--shadowColor', '#ddd');
+      document.getElementsByTagName('body')[0].style.setProperty('--onBackColor','#333');
+      document.getElementsByTagName('body')[0].style.setProperty('--onSurfaceColor','#333');
+      document.getElementsByTagName('body')[0].style.setProperty('--highlightColor','#f0f0f0');
+      document.getElementsByTagName('body')[0].style.setProperty('--borderColor','rgba(0,0,0,0)');
+    }
+    
   }
   
   onIndustryChange = (industryFilter: any) => {
@@ -110,8 +122,8 @@ class App extends React.Component<{}, AppState> {
                 </SubMenu>
               </Menu>
 
-              <Menu mode = "inline" defaultOpenKeys = {['industry']} style = {{ height: '100%' }} >
-                <SubMenu className = 'content-side-submenu' key = "industry" title = "Industry">
+              <Menu mode = "inline" defaultOpenKeys = {['industry']}>
+                <SubMenu className = 'content-side-submenu industry-check' key = "industry" title = "Industry">
                   <Checkbox indeterminate={indeterminate} onChange={this.onCheckAllChange} checked={checkAll}>
                     Check all
                   </Checkbox>
@@ -127,7 +139,7 @@ class App extends React.Component<{}, AppState> {
             </div>
           </Content>
         </Layout>
-        <Footer className = 'footer'>Copyright © 2021-2021 Siji Chen. All rights reserved.</Footer>
+        <Footer className = 'footer'>Copyright © 2021-2021 IDVx Lab. All rights reserved.</Footer>
       </Layout>
     </div>
     )
