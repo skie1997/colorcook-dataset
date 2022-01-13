@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/static/css/main.6f135c70.chunk.css",
-    "main.js": "/static/js/main.8f582abf.chunk.js",
-    "main.js.map": "/static/js/main.8f582abf.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.e32979b9.js",
-    "runtime-main.js.map": "/static/js/runtime-main.e32979b9.js.map",
-    "static/css/2.86777d52.chunk.css": "/static/css/2.86777d52.chunk.css",
-    "static/js/2.ccfbe803.chunk.js": "/static/js/2.ccfbe803.chunk.js",
-    "static/js/2.ccfbe803.chunk.js.map": "/static/js/2.ccfbe803.chunk.js.map",
-    "static/js/3.b799ea7b.chunk.js": "/static/js/3.b799ea7b.chunk.js",
-    "static/js/3.b799ea7b.chunk.js.map": "/static/js/3.b799ea7b.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/2.86777d52.chunk.css.map": "/static/css/2.86777d52.chunk.css.map",
-    "static/css/main.6f135c70.chunk.css.map": "/static/css/main.6f135c70.chunk.css.map",
-    "static/js/2.ccfbe803.chunk.js.LICENSE.txt": "/static/js/2.ccfbe803.chunk.js.LICENSE.txt",
-    "static/media/index.sass": "/static/media/Poppins-Light.f41b63c0.ttf"
+    "main.css": "/colorcook-dataset/static/css/main.2237d575.chunk.css",
+    "main.js": "/colorcook-dataset/static/js/main.8908fdfb.chunk.js",
+    "main.js.map": "/colorcook-dataset/static/js/main.8908fdfb.chunk.js.map",
+    "runtime-main.js": "/colorcook-dataset/static/js/runtime-main.704f0572.js",
+    "runtime-main.js.map": "/colorcook-dataset/static/js/runtime-main.704f0572.js.map",
+    "static/css/2.86777d52.chunk.css": "/colorcook-dataset/static/css/2.86777d52.chunk.css",
+    "static/js/2.c9b0ca7d.chunk.js": "/colorcook-dataset/static/js/2.c9b0ca7d.chunk.js",
+    "static/js/2.c9b0ca7d.chunk.js.map": "/colorcook-dataset/static/js/2.c9b0ca7d.chunk.js.map",
+    "static/js/3.b799ea7b.chunk.js": "/colorcook-dataset/static/js/3.b799ea7b.chunk.js",
+    "static/js/3.b799ea7b.chunk.js.map": "/colorcook-dataset/static/js/3.b799ea7b.chunk.js.map",
+    "index.html": "/colorcook-dataset/index.html",
+    "static/css/2.86777d52.chunk.css.map": "/colorcook-dataset/static/css/2.86777d52.chunk.css.map",
+    "static/css/main.2237d575.chunk.css.map": "/colorcook-dataset/static/css/main.2237d575.chunk.css.map",
+    "static/js/2.c9b0ca7d.chunk.js.LICENSE.txt": "/colorcook-dataset/static/js/2.c9b0ca7d.chunk.js.LICENSE.txt",
+    "static/media/index.sass": "/colorcook-dataset/static/media/Poppins-Light.f41b63c0.ttf"
   },
   "entrypoints": [
-    "static/js/runtime-main.e32979b9.js",
+    "static/js/runtime-main.704f0572.js",
     "static/css/2.86777d52.chunk.css",
-    "static/js/2.ccfbe803.chunk.js",
-    "static/css/main.6f135c70.chunk.css",
-    "static/js/main.8f582abf.chunk.js"
+    "static/js/2.c9b0ca7d.chunk.js",
+    "static/css/main.2237d575.chunk.css",
+    "static/js/main.8908fdfb.chunk.js"
   ]
 }
