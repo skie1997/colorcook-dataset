@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/colorcook-dataset/static/css/main.2237d575.chunk.css",
+    "main.css": "/colorcook-dataset/static/css/main.ac5c0e9b.chunk.css",
     "main.js": "/colorcook-dataset/static/js/main.8908fdfb.chunk.js",
     "main.js.map": "/colorcook-dataset/static/js/main.8908fdfb.chunk.js.map",
     "runtime-main.js": "/colorcook-dataset/static/js/runtime-main.704f0572.js",
@@ -12,7 +12,7 @@
     "static/js/3.b799ea7b.chunk.js.map": "/colorcook-dataset/static/js/3.b799ea7b.chunk.js.map",
     "index.html": "/colorcook-dataset/index.html",
     "static/css/2.86777d52.chunk.css.map": "/colorcook-dataset/static/css/2.86777d52.chunk.css.map",
-    "static/css/main.2237d575.chunk.css.map": "/colorcook-dataset/static/css/main.2237d575.chunk.css.map",
+    "static/css/main.ac5c0e9b.chunk.css.map": "/colorcook-dataset/static/css/main.ac5c0e9b.chunk.css.map",
     "static/js/2.c9b0ca7d.chunk.js.LICENSE.txt": "/colorcook-dataset/static/js/2.c9b0ca7d.chunk.js.LICENSE.txt",
     "static/media/index.sass": "/colorcook-dataset/static/media/Poppins-Light.f41b63c0.ttf"
   },
@@ -20,7 +20,7 @@
     "static/js/runtime-main.704f0572.js",
     "static/css/2.86777d52.chunk.css",
     "static/js/2.c9b0ca7d.chunk.js",
-    "static/css/main.2237d575.chunk.css",
+    "static/css/main.ac5c0e9b.chunk.css",
     "static/js/main.8908fdfb.chunk.js"
   ]
 }
