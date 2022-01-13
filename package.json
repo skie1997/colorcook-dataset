@@ -1,7 +1,7 @@
 {
   "name": "colorset-web",
   "version": "0.1.0",
-  "homepage": " https://skie1997.github.io/colorcook-dataset/",
+  "homepage": " https://colorcook-dataset.github.io/",
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "@babel/core": "7.12.3",
