@@ -10,11 +10,16 @@
   --shadowColor: #ddd;
   --onBackColor: #333;
   --onSurfaceColor: #333;
+  --selectColor: #f0f0f0;
+  --highlightColor: #f0f0f0;
 }
 @fontColor: var(--fontColor);
 @backColor: var(--backColor);
+@surfaceColor: var(--surfaceColor);
 @onBackColor: var(--onBackColor);
 @onSurfaceColor: var(--onSurfaceColor);
+@highlightColor: var(--highlightColor);
+@borderColor: var(--borderColor);
 
 
 #root {
@@ -62,24 +67,27 @@ code {
 
 .ant-menu {
   margin-bottom: 20px;
+  color: @surfaceColor;
 }
 .ant-menu-submenu-arrow {
   opacity: 0;
 }
 .ant-menu-submenu-title {
   padding-left: 24px;
-  background: rgb(240,240,240);
+  background: @highlightColor;
   border-radius: 10px 10px 0 0;
-  color: #222;
+  // color: #222;
+  color: @fontColor;
   margin: 0px !important;
 }
 .ant-menu.ant-menu-root.ant-menu-inline.ant-menu-light{
   border-radius: 10px;
-  border: solid 1px rgb(240,240,240)
+  border: solid 1px @borderColor;
 }
 .ant-menu-item.ant-menu-item-selected.ant-menu-item-only-child {
-  background: rgb(240,240,240);
-  color: #222;
+  background: @highlightColor;
+  // color: #222;
+  color: @fontColor;
 
   &::after {
     opacity: 0;
@@ -89,12 +97,28 @@ code {
   height: 30px;
   /* line-height: 30px; */
   color: #bbb;
-  background: #fff;
+  background: @surfaceColor;
   margin: 0;
   font-size: 10px;
-  border: solid 5px #fff;
+  border: solid 5px @surfaceColor;
   border-radius: 10px;
 }
 .ant-menu-sub.ant-menu-inline {
-  background-color: #fff;
+  background-color: @surfaceColor;
+  border-radius: 10px;
+}
+.ant-menu-submenu, .ant-menu-submenu-inline {
+  background-color: @surfaceColor;
+  border-radius: 10px;
+}
+
+.ant-layout-sider {
+  background: @backColor !important;
+}
+
+.ant-checkbox-wrapper {
+  display: flex;
+  padding-left: 20px;
+  margin: 5px 0;
+  color: @fontColor;
 }

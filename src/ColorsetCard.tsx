@@ -96,11 +96,16 @@ export default class ColorsetCard extends React.PureComponent<CardProps, CardSta
                         <Descriptions.Item label = 'specificity'>{this.props.info.specificity}</Descriptions.Item>
                     </Descriptions> */}
                     <div>industry: {this.props.info.id.split('_')[0]}</div>
-                    <div>{'aesthetics:' + this.props.info.aesthetics + '\u00A0\u00A0\u00A0\u00A0\u00A0distinctiveness:' + this.props.info.distinctiveness}</div>
+                    <div>{'aesthetics:\u00A0' + this.props.info.aesthetics + '\u00A0\u00A0\u00A0\u00A0\u00A0distinctiveness:\u00A0' + this.props.info.distinctiveness}</div>
                     {/* <div>specificity: {this.props.info.specificity}</div> */}
                 </div>
                 <div className = 'download'>
-                    <div className = 'downImg'>
+                <div className = 'downImg'>
+                        <div className = 'downImg-back'>
+                            <FileImageOutlined style = {{fontSize: 15, color: '#222'}} onClick = {(e) => this.downImg(e, this.props.info.id)}/>
+                        </div>
+                    </div>
+                    {/* <div className = 'downImg'>
                         <div className = 'downImg-back'>
                             <FileImageOutlined style = {{fontSize: 15, color: '#222'}} onClick = {(e) => this.downImg(e, this.props.info.id)}/>
                         </div>
@@ -114,7 +119,7 @@ export default class ColorsetCard extends React.PureComponent<CardProps, CardSta
                         <div className = 'viewImg-back'>
                             <EyeOutlined style = {{fontSize: 15, color: '#222'}}/>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
                 
             </div>

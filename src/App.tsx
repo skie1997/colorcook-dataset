@@ -48,6 +48,8 @@ class App extends React.Component<{}, AppState> {
     document.getElementsByTagName('body')[0].style.setProperty('--shadowColor', 'none');
     document.getElementsByTagName('body')[0].style.setProperty('--onBackColor','#d6d6d6');
     document.getElementsByTagName('body')[0].style.setProperty('--onSurfaceColor','#e1e1e1');
+    document.getElementsByTagName('body')[0].style.setProperty('--highlightColor','#363636');
+    document.getElementsByTagName('body')[0].style.setProperty('--borderColor','rgba(0,0,0,0)');
   }
   
   onIndustryChange = (industryFilter: any) => {
@@ -83,7 +85,7 @@ class App extends React.Component<{}, AppState> {
           showIcon
         />
       <Layout>
-        <Header className = 'header' style={{height: 240, backgroundColor: '#FFF'}}>
+        <Header className = 'header' style={{height: 200, backgroundColor: '#FFF'}}>
           <h1 className = 'header-title'>Palettes Gallery Of ColorCook</h1>
           <h3 className = 'header-description' style={{lineHeight: 2}}>
             We collected graphic designs(illustrations) that depict scenarios of the identified domains and extracted corresponding color palettes from these
@@ -93,7 +95,7 @@ class App extends React.Component<{}, AppState> {
           </h3>
         </Header>
         <Layout>
-          <Sider className = 'sider' width={'20%'} style={{background: 'white'}}>
+          <Sider className = 'sider' width={'15%'} style={{background: 'white'}}>
           <Menu mode = "inline" defaultOpenKeys = {['mode']} defaultSelectedKeys = {[mode]} style = {{ height: '100%' }} onClick = {this.onModeChange}>
                 <SubMenu className = 'content-side-submenu' key = "mode" title = "Mode" >
                   <Menu.Item key = "dark" >dark</Menu.Item>

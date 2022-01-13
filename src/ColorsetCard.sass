@@ -3,9 +3,39 @@
 @backColor: var(--backColor); //用var来盛放变量名
 @surfaceColor: var(--surfaceColor);
 @shadowColor: var(--shadowColor);
+
+/* 超小屏幕（手机，小于 768px） */
+@media screen and (min-width: 0px) {
+    .colorset-card {
+        width: 80%;
+    }
+}
+
+/* 小屏幕（平板，大于等于 768px） */
+@media screen and (min-width: 868px) {
+    .colorset-card {
+        width: 40%;
+    }
+}
+
+/* 中等屏幕（桌面显示器，大于等于 992px） */
+@media screen and (min-width:992px) {
+    .colorset-card {
+        width: 40%;
+    }
+}
+
+/* 大屏幕（大桌面显示器，大于等于 1200px） */
+@media screen and (min-width:1200px) {
+    .colorset-card {
+        width: 30%;
+    }
+}
+
+
 .colorset-card {
     display: inline-block;
-    width: 30%;
+    // width: 30%;
     height: 180px;
     padding: 15px;
     margin: 1%;
