@@ -10,6 +10,7 @@ export interface CardProps {
         rgbs: string[];
         aesthetics: number;
         distinctiveness: number;
+        specificity_avg: number;
         specificity: number[];
         specificities: object;
     }
@@ -95,9 +96,12 @@ export default class ColorsetCard extends React.PureComponent<CardProps, CardSta
                         <Descriptions.Item label = 'distinctiveness'>{this.props.info.distinctiveness}</Descriptions.Item>
                         <Descriptions.Item label = 'specificity'>{this.props.info.specificity}</Descriptions.Item>
                     </Descriptions> */}
-                    <div>industry: {this.props.info.id.split('_')[0]}</div>
-                    <div>{'aesthetics:\u00A0' + this.props.info.aesthetics + '\u00A0\u00A0\u00A0\u00A0\u00A0distinctiveness:\u00A0' + this.props.info.distinctiveness}</div>
-                    {/* <div>specificity: {this.props.info.specificity}</div> */}
+                    <div><strong>{'Domain:\u00A0'}</strong>{this.props.info.id.split('_')[0]}</div>
+                    <div><strong>{'Scores:\u00A0'}</strong></div>
+                    <div>{'Aesthetics:\u00A0' + this.props.info.aesthetics + '\u00A0\u00A0\u00A0\u00A0\u00A0Distinctiveness:\u00A0' + this.props.info.distinctiveness}</div>
+                    <div>{'Specificity'} <span style={{fontSize: '8px'}}>(average sroce)</span>{':\u00A0' + this.props.info.specificity_avg}</div>
+                    <div>{'Specificities'} <span style={{fontSize: '8px'}}>(indivisual scores)</span>{':\u00A0'}</div>
+                    <div>{this.props.info.specificity.join(", ")}</div>
                 </div>
                 <div className = 'download'>
                     <div className = 'downJson' >

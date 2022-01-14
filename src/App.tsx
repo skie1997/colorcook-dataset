@@ -2,7 +2,7 @@ import React from 'react';
 import { Layout, Menu, Checkbox, Alert } from 'antd';
 // import { BulbOutlined, StockOutlined } from '@ant-design/icons';
 import './App.sass';
-import { colorStyle } from './assets/palettes/colorStyle_all_2_ok2';
+import { colorStyle } from './assets/palettes/colorStyle_all_2_ok3';
 import ColorsetCard from './ColorsetCard';
 // import SubMenu from 'antd/lib/menu/SubMenu';
 // import Sider from 'antd/lib/layout/Sider';
@@ -97,13 +97,11 @@ class App extends React.Component<{}, AppState> {
           showIcon
         />
       <Layout>
-        <Header className = 'header' style={{height: 200, backgroundColor: '#FFF'}}>
-          <h1 className = 'header-title'>Palettes Gallery Of ColorCook</h1>
-          <h3 className = 'header-description' style={{lineHeight: 2}}>
-            We collected graphic designs(illustrations) that depict scenarios of the identified domains and extracted corresponding color palettes from these
-            designs. We also validated the dataset from three aspects, including distinctiveness, aesthetics, and specificity. The
-            final dataset contains 115 manually curated palettes and is released to support the design of future data-driven color
-            authoring tools. 
+        <Header className = 'header' style={{height: "auto", backgroundColor: '#FFF'}}>
+          <h2 className = 'header-title'>Domain-Associated Palettes Dataset</h2>
+          <h3 className = 'header-description' style={{lineHeight: 1.5}}>
+          We collected a manually curated dataset of 115 domain-associated palettes, which serves as a palette library in ColorCook and helps users expressively colorize a dashboard based on its domain. 
+          To create such a dataset for our system, we first identified common domains of dashboards by investigating existing dashboard tools. We then collected graphic designs (illustrations) that depict scenarios of the identified domains and extracted corresponding color palettes from these designs. Each palette in our dataset is scored in terms of distinctiveness (0-5), aesthetics (0-5), and specificity (0-5). The dataset is released to support the design of future data-driven color design tools.
           </h3>
         </Header>
         <Layout>
@@ -123,7 +121,7 @@ class App extends React.Component<{}, AppState> {
               </Menu>
 
               <Menu mode = "inline" defaultOpenKeys = {['industry']}>
-                <SubMenu className = 'content-side-submenu industry-check' key = "industry" title = "Industry">
+                <SubMenu className = 'content-side-submenu industry-check' key = "industry" title = "Domains">
                   <Checkbox indeterminate={indeterminate} onChange={this.onCheckAllChange} checked={checkAll}>
                     Check all
                   </Checkbox>
@@ -133,7 +131,7 @@ class App extends React.Component<{}, AppState> {
           </Sider>
           <Content className = 'content'>
             <div className = 'content-main'>
-              {colorStyle.filter((colorset) => industryFilter.indexOf(colorset.industryName)!== -1).sort((a, b) => rank === 'aesthetics'? a.aesthetics - b.aesthetics : a.distinctiveness - b.distinctiveness).map((colorset) => {
+              {colorStyle.filter((colorset) => industryFilter.indexOf(colorset.industryName)!== -1).sort((a, b) => rank === 'aesthetics'? b.aesthetics - a.aesthetics : b.distinctiveness - a.distinctiveness).map((colorset) => {
                   return <ColorsetCard info = {colorset} industryFilter = {this.state.industryFilter} />
                 })}
             </div>
