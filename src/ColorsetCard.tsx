@@ -1,6 +1,6 @@
 import React from 'react';
 import './ColorsetCard.sass';
-import { Alert, Descriptions } from 'antd';
+import { Alert, Descriptions, Tag } from 'antd';
 import { FileImageOutlined, FileTextOutlined, EyeOutlined, ArrowDownOutlined} from '@ant-design/icons';
 import html2canvas from 'html2canvas';
 
@@ -99,9 +99,11 @@ export default class ColorsetCard extends React.PureComponent<CardProps, CardSta
                     <div><strong>{'Domain:\u00A0'}</strong>{this.props.info.id.split('_')[0]}</div>
                     <div><strong>{'Scores:\u00A0'}</strong></div>
                     <div>{'Aesthetics:\u00A0' + this.props.info.aesthetics + '\u00A0\u00A0\u00A0\u00A0\u00A0Distinctiveness:\u00A0' + this.props.info.distinctiveness}</div>
-                    <div>{'Specificity'} <span style={{fontSize: '8px'}}>(average sroce)</span>{':\u00A0' + this.props.info.specificity_avg}</div>
-                    <div>{'Specificities'} <span style={{fontSize: '8px'}}>(indivisual scores)</span>{':\u00A0'}</div>
-                    <div>{this.props.info.specificity.join(", ")}</div>
+                    <div>{'Specificities'} <span >average score</span>{'\u00A0:\u00A0' + this.props.info.specificity_avg}</div>
+                    <div>{'Specificities'} <span style={{fontSize: '8px'}}>indivisual scores</span>{'\u00A0:\u00A0'}</div>
+                    <div className = "specificity-score">{this.props.info.specificity.map((score) => {
+                        return <div className = "specificity-score-flex"><div className = "specificity-score-flex-unit">{score}</div></div>
+                    })}</div>
                 </div>
                 <div className = 'download'>
                     <div className = 'downJson' >

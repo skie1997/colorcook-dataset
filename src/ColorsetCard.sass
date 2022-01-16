@@ -82,7 +82,7 @@
         width: 100%;
         height: 20%;
         //margin-top: 20px;
-        margin-top: 10px;
+        margin-top: 5px;
         .downImg {
             flex: 1;
             height: 30px;
@@ -136,11 +136,32 @@
     .detail {
         text-align: left;
         span {
-            line-height: 0.78;
+            // line-height: 0.78;
             font-size: 10px;
+            background-color: @highlightColor;
+            padding-left: 5px;
+            padding-right: 5px;
+            border-radius: 3px;
+            line-height: 1;
+            // border: solid 1px @shadowColor;
         }
         
         // height: 50%;
+        .specificity-score {
+            display: flex;
+            margin-top: 5px;
+        }
+        .specificity-score-flex {
+            flex: 1;
+            
+        }
+        .specificity-score-flex-unit {
+            background: @highlightColor;
+            width: 24px;
+            height: 24px;
+            border-radius: 12px;
+            text-align: center;
+        }
     }
 }
 
